@@ -10,35 +10,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-
-app.get("/api/tokens", (req, res) => {
-    res.json(
-        [
-            {
-                "owner": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
-                "contractAddress": "0xc519cf37790f58b3444692605382aee7c53bb06e",
-                "name": "Verify Token",
-                "symbol": "VTX",
-                "dateCreated": "1508013730"
-            },
-            {
-                "owner": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
-                "contractAddress": "0xaed6aa4340e2a1f71601172627e03d174ddf7c4a",
-                "name": "blah",
-                "symbol": "S",
-                "dateCreated": "1508014970"
-            },
-            {
-                "owner": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
-                "contractAddress": "0x5dfc5d64ea0688df89827e3ef044ed936c353efa",
-                "name": "blah",
-                "symbol": "S",
-                "dateCreated": "1508015037"
-            }
-        ]);
-    return;
-});
-
 app.post("/api/createOrder", (req, res) => {
     res.json({
         "success": true
@@ -91,9 +62,38 @@ let orders = [
     }
 ];
 
+app.get("/api/tokens", (req, res) => {
+    res.json(
+        [
+            {
+                "owner": PersonA,
+                "contractAddress": productA_address,
+                "name": "A Token",
+                "symbol": "A",
+                "dateCreated": "1508013730",
+
+            },
+            {
+                "owner": PersonB,
+                "contractAddress": productB_address,
+                "name": "B Token",
+                "symbol": "B",
+                "dateCreated": "1508014970"
+            },
+            {
+                "owner": PersonC,
+                "contractAddress": productC_address,
+                "name": "C Token",
+                "symbol": "C",
+                "dateCreated": "1508015037"
+            }
+        ]);
+    return;
+});
+
 app.get("/api/orders", (req, res) => {
     console.log(req);
-    res.json();
+    res.json(orders);
     return;
 });
 
