@@ -54,44 +54,40 @@ app.post("/api/submitTransaction", (req, res) => {
     return;
 });
 
-var orders = [
+const zero = "0x0000000000000000000000000000000000000000";
+const PersonA = "0x6Ecbe1DB9EF729CBe972C83Fb886247691Fb6beb";
+const PersonB = "0x5409ed021d9299bf6814279a6a1411a7e866a631";
+const PersonC = "0x5409ed021d9299bf6814279a6a1411a7e866a631";
+const productA_address = "0xsdfsi98324jshkdflkjsdkfljsdlkfjslkdfjlla";
+const productB_address = "0x98sd734jkhskjdfuy9832jlkhsdfjkhskjfh3jjj";
+const productC_address = "0xk9d0ewlksdjflksdjflksuwohjsdlfkjoiwejlsd";
+
+const etherContract_address = "0x98sdjk23jsfd78923hlsdyf98y23oi4hljkshefd"; //this is the 0x ethereum address
+
+let orders = [
     {
-        "maker": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
-        "taker": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
-        "takerTokenAddress": "0x5dfc5d64ea0688df89827e3ef044ed936c353efa",
-        "makerTokenAddress": "0x5dfc5d64ea0688df89827e3ef044ed936c353efa",
-        "makerTokenAmount": "2",
-        "takerTokenAmount": "2",
-        "takerFee": "0",
-        "makerFee": "0",
-        "exchangeContractAddress": "0xb69e673309512a9d726f87304c6984054f87a93b",
-        "feeRecipient": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
-        "expirationUnixTimestampSec": "1508016431100000",
-        "salt": "83249299622462572745539513584134626030319093614134030042068936075717146707649",
-        "ecSignature": {
-            "v": 27,
-            "r": "0x0ca3feeaf1d1c4850da6b25eac91a56df0e06f44a15ae64a2daeecfbd09ee194",
-            "s": "0x3c2cd0d777a6becade90082e13a7f0b6884e8c475133379bb522aa0a934f4580"
-        }
+        "maker": PersonA,
+        "taker": zero,
+        "takerTokenAddress": etherContract_address,
+        "makerTokenAddress": productA_address,
+        "makerTokenAmount": "1",
+        "takerTokenAmount": "1",
     },
     {
-        "maker": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
-        "taker": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
-        "takerTokenAddress": "0x5dfc5d64ea0688df89827e3ef044ed936c353efa",
-        "makerTokenAddress": "0x5dfc5d64ea0688df89827e3ef044ed936c353efa",
-        "makerTokenAmount": "2",
+        "maker": PersonB,
+        "taker": zero,
+        "takerTokenAddress": etherContract_address,
+        "makerTokenAddress": productA_address,
+        "makerTokenAmount": "10",
+        "takerTokenAmount": "9",
+    },
+    {
+        "maker": PersonB,
+        "taker": zero,
+        "takerTokenAddress": etherContract_address,
+        "makerTokenAddress": productB_address,
+        "makerTokenAmount": "1",
         "takerTokenAmount": "2",
-        "takerFee": "0",
-        "makerFee": "0",
-        "exchangeContractAddress": "0xb69e673309512a9d726f87304c6984054f87a93b",
-        "feeRecipient": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
-        "expirationUnixTimestampSec": "1508016431100000",
-        "salt": "83249299622462572745539513584134626030319093614134030042068936075717146707649",
-        "ecSignature": {
-            "v": 27,
-            "r": "0x0ca3feeaf1d1c4850da6b25eac91a56df0e06f44a15ae64a2daeecfbd09ee194",
-            "s": "0x3c2cd0d777a6becade90082e13a7f0b6884e8c475133379bb522aa0a934f4580"
-        }
     }
 ];
 
